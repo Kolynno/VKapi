@@ -8,13 +8,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-public class HelloApplication extends Application {
+public class VKAPI extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(VKAPI.class.getResource("start-view.fxml"));
         fxmlLoader.setCharset(StandardCharsets.UTF_8);
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        stage.setTitle("VK API");
         stage.setScene(scene);
         stage.show();
     }
@@ -23,3 +23,8 @@ public class HelloApplication extends Application {
         launch();
     }
 }
+/*
+//проверить, что токен и id группы корректен
+Если нет -> уведомить и не пускать
+Если да -> войти в приложение
+*/

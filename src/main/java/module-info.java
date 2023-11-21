@@ -4,6 +4,7 @@ module nick.itmo.vkapi {
     requires com.fasterxml.jackson.databind;
     requires org.apache.httpcomponents.httpclient;
     requires org.apache.httpcomponents.httpcore;
+    requires java.desktop;
 
 
     opens nick.itmo.vkapi to javafx.fxml;
