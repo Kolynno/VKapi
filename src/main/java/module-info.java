@@ -13,4 +13,6 @@ module nick.itmo.vkapi {
     opens nick.itmo.vkapi.data to javafx.fxml;
     exports nick.itmo.vkapi.requests;
     opens nick.itmo.vkapi.requests to javafx.fxml;
+    exports nick.itmo.vkapi.controllers;
+    opens nick.itmo.vkapi.controllers to javafx.fxml;
 }

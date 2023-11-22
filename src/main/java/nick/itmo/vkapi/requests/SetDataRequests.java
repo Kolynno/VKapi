@@ -21,6 +21,9 @@ import java.util.Map;
 
 public class SetDataRequests {
     public static void setGroupId(String groupIdStr) {
+        if (groupIdStr.length() < 15) {
+            return;
+        }
         groupIdStr = groupIdStr.substring(15).trim();
         Data.GROUP_ID = getGroupId(groupIdStr);
     }
