@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import nick.itmo.vkapi.VKAPI;
 import nick.itmo.vkapi.data.Data;
 import nick.itmo.vkapi.requests.SetDataRequests;
 import nick.itmo.vkapi.requests.CheckRequests;
@@ -75,7 +76,7 @@ public class StartViewController {
 
     private void setTextToLabel() {
         labelTextIncorrectMessage.setText("Ссылка на токен или на группу некорректна, попробуйте заново!");
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), labelTextIncorrectMessage);
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(5), labelTextIncorrectMessage);
         fadeOut.setFromValue(1.0);
         fadeOut.setToValue(0.0);
         fadeOut.setOnFinished(event -> labelTextIncorrectMessage.setText(""));
@@ -84,7 +85,7 @@ public class StartViewController {
 
     public void buttonGetHelp(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("help-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(VKAPI.class.getResource("help-view.fxml"));
             loader.setCharset(StandardCharsets.UTF_8);
             Parent root = loader.load();
 
