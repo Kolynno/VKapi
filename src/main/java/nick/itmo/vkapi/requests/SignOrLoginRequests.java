@@ -17,7 +17,7 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
-public class Requests {
+public class SignOrLoginRequests {
 
    public static void openBrowserToGetTokenURL() {
         String url = "https://oauth.vk.com/authorize?client_id="+ Data.APPLICATION_ID +"&scope=wall,offline&redirect_uri=https://oauth.vk.com/blank.html&response_type=token";
@@ -37,7 +37,13 @@ public class Requests {
         }
     }
 
-    public static void WallPost() {
+
+
+
+
+
+
+   public static void WallPost() {
         String apiUrl = "https://api.vk.com/method/wall.post?owner_id=-223544817&message=d&access_token="+ Data.TOKEN +"&v=5.131";
         HttpClient httpClient = HttpClients.createDefault();
         try {
@@ -58,7 +64,7 @@ public class Requests {
         }
     }
 
-    private static void processApiResponse(JsonNode jsonResponse) {
+   private static void processApiResponse(JsonNode jsonResponse) {
         JsonNode responseNode = jsonResponse.get("response");
         if (responseNode != null && responseNode.has("post_id")) {
             JsonNode userNode = responseNode.get("post_id");
@@ -67,7 +73,6 @@ public class Requests {
             System.out.println("ID: " + id);
         } else {
             System.out.println("Error: Unable to retrieve post_id from the response.");
-        }
-    }
-
+      }
+   }
 }

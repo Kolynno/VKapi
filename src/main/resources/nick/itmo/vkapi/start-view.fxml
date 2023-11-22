@@ -3,12 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nick.itmo.vkapi.StartViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nick.itmo.vkapi.StartViewController">
    <children>
       <TextField fx:id="fieldGroupLink" layoutX="14.0" layoutY="14.0" promptText="Ссылка на группу" />
       <TextField fx:id="fieldGroupToken" layoutX="14.0" layoutY="39.0" promptText="Ссылка с токеном" />
       <Button fx:id="buttonGetToken" layoutX="174.0" layoutY="39.0" mnemonicParsing="false" onAction="#buttonGetTokenClick" prefHeight="26.0" prefWidth="312.0" text="Запустить браузер, чтобы получить ссылку с токеном" />
       <Button fx:id="buttonGetAccess" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#buttonGetAccessClick" text="Войти" />
       <Label layoutX="174.0" layoutY="18.0" text="Пример: https://vk.com/club24817" />
+      <Label fx:id="labelTextIncorrectMessage" layoutX="75.0" layoutY="91.0" AnchorPane.topAnchor="91.0" />
    </children>
 </AnchorPane>

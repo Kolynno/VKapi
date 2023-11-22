@@ -1,8 +1,9 @@
-package nick.itmo.vkapi.data;
+package nick.itmo.vkapi.requests;
 
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import nick.itmo.vkapi.data.Data;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class SetData {
+public class SetDataRequests {
     public static void setGroupId(String groupIdStr) {
         groupIdStr = groupIdStr.substring(15).trim();
         Data.GROUP_ID = getGroupId(groupIdStr);
@@ -55,15 +56,17 @@ public class SetData {
 
                     if (firstGroupNode.has("id")) {
                         id = firstGroupNode.get("id").asInt();
-                        System.out.println("ID from link: " + id);
+                        System.out.println("ID group is correct");
+                        Data.IS_CORRECT_GROUP_ID = true;
                     }
                 }
             } else {
-                System.out.println("Error: Unable to retrieve post_id from the response.");
+                System.out.println("ID group isn't correct");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return id;
     }
 
@@ -74,6 +77,8 @@ public class SetData {
             String decodedFragment = URLDecoder.decode(fragment, "UTF-8");
             String accessToken = getAccessToken(decodedFragment);
             Data.TOKEN = accessToken;
+            System.out.println("Token is correct");
+            Data.IS_CORRECT_TOKEN = true;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
