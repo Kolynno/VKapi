@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nick.itmo.vkapi.controllers.MainViewController" />
+<AnchorPane fx:id="TextAreaTemplatePreview" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: D9D9D9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nick.itmo.vkapi.controllers.MainViewController">
+   <children>
+      <TextArea editable="false" prefHeight="310.0" prefWidth="400.0" promptText="Превью шаблона" style="-fx-background-color: #8F8F8F; -fx-border-color: #787878; -fx-border-width: 1 0 0 1;" wrapText="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="360.0">
+         <font>
+            <Font name="Droid Sans" size="16.0" />
+         </font>
+      </TextArea>
+      <HBox prefHeight="50.0" prefWidth="1080.0" style="-fx-background-color: #BEBEBE; -fx-border-width: 0 0 1 0; -fx-border-color: #787878;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Label fx:id="labelNameOfGroup" text="Название сообщества">
+               <font>
+                  <Font name="Droid Sans" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ListView fx:id="ListViewVars" editable="true" prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #656565; -fx-border-color: #787878; -fx-border-width: 0 1 0 0;" AnchorPane.topAnchor="50.0" />
+      <ListView fx:id="ListViewTemplates" prefHeight="310.0" prefWidth="400.0" style="-fx-background-color: #8F8F8F; -fx-border-color: #787878; -fx-border-width: 0 0 0 1;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <TextArea fx:id="TextAreaPost" prefHeight="620.0" prefWidth="480.0" promptText="Ваш пост" wrapText="true" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Droid Sans" size="16.0" />
+         </font>
+      </TextArea>
+      <HBox prefHeight="50.0" prefWidth="1080.0" style="-fx-background-color: #BEBEBE; -fx-border-color: #787878; -fx-border-width: 1 0 0 0;" AnchorPane.bottomAnchor="0.0" />
+   </children>
+</AnchorPane>

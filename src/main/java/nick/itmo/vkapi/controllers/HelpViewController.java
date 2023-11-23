@@ -20,7 +20,7 @@ public class HelpViewController {
 
     public void buttonBackClick(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(VKAPI.class.getResource("main-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(VKAPI.class.getResource("start-view.fxml"));
             loader.setCharset(StandardCharsets.UTF_8);
             Parent root = loader.load();
 
