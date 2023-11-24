@@ -69,7 +69,7 @@ public class MainViewController {
     public void ButtonDeleteTemplateClick(ActionEvent actionEvent) {
     }
 
-    private final ObservableList<String> templateNames = FXCollections.observableArrayList();
+    private final ObservableList<String> templateNames = FXCollections.observableArrayList(TemplatesHandle.getTemplatesNames());
 
 
     public void ButtonSaveTemplateClick() {

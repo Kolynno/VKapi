@@ -19,6 +19,7 @@ import java.util.Locale;
 
 public class SignOrLoginRequests {
 
+
    public static void openBrowserToGetTokenURL() {
         String url = "https://oauth.vk.com/authorize?client_id="+ Data.APPLICATION_ID +"&scope=wall,offline&redirect_uri=https://oauth.vk.com/blank.html&response_type=token";
         try {

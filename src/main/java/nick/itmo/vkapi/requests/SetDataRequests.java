@@ -20,6 +20,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class SetDataRequests {
+
     public static void setGroupId(String groupIdStr) {
         if (groupIdStr.length() < 15) {
             return;
@@ -59,7 +60,6 @@ public class SetDataRequests {
 
                     if (firstGroupNode.has("id")) {
                         id = firstGroupNode.get("id").asInt();
-                        System.out.println("ID group is correct");
                         Data.IS_CORRECT_GROUP_ID = true;
                     }
                     if(firstGroupNode.has("name")) {
@@ -79,19 +79,16 @@ public class SetDataRequests {
 
     public static void setToken(String inputString) {
         String fragment = inputString.split("#")[1];
-        try {
-            String decodedFragment = URLDecoder.decode(fragment, "UTF-8");
-            String accessToken = getAccessToken(decodedFragment);
-            Data.TOKEN = accessToken;
-            System.out.println("Token is correct");
-            Data.IS_CORRECT_TOKEN = true;
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        String decodedFragment = URLDecoder.decode(fragment, StandardCharsets.UTF_8);
+        String accessToken = getAccessToken(decodedFragment);
+        Data.TOKEN = accessToken;
+        Data.IS_CORRECT_TOKEN = true;
     }
 
-    private static String getAccessToken(String decodedFragment) {
-        String[] params = decodedFragment.split("&");
+    /**
+     * Разделяет url по частям и находит значение токена */
+    private static String getAccessToken(String url) {
+        String[] params = url.split("&");
         Map<String, String> paramMap = new HashMap<>();
         for (String param : params) {
             String[] keyValue = param.split("=");

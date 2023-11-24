@@ -13,4 +13,11 @@ public class FileRepository {
         }
     }
 
+    public static void saveTemplateId(int id) {
+        try (PrintWriter writer = new PrintWriter("src/main/java/nick/itmo/vkapi/user/templates/settings.txt")) {
+            writer.println(id);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

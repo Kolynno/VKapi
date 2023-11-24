@@ -1,7 +1,6 @@
 package nick.itmo.vkapi.controllers;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +35,8 @@ public class StartViewController {
         SignOrLoginRequests.openBrowserToGetTokenURL();
     }
 
+    /**
+     * Проверка, что id и token валидны, тогда регистрация успешна, иначе сообщать */
     @FXML
     private void buttonGetAccessClick() {
         String tokenURL = fieldGroupToken.getText();
@@ -54,7 +55,6 @@ public class StartViewController {
             changeViewToMain();
         } else {
             setTextToLabel();
-            System.out.println("Data isn't correct");
         }
     }
 
