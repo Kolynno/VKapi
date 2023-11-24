@@ -11,16 +11,16 @@ import java.nio.charset.StandardCharsets;
 public class VKAPI extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(VKAPI.class.getResource("start-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(VKAPI.class.getResource("main-view.fxml"));
         fxmlLoader.setCharset(StandardCharsets.UTF_8);
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("VK API");
         stage.setMinWidth(1000);
         stage.setMinHeight(600);
         stage.setScene(scene);
-        stage.setResizable(false);
-        stage.setMaximized(false);
-        stage.setFullScreen(false);
+        //stage.setResizable(false);
+        //stage.setMaximized(false);
+        //stage.setFullScreen(false);
         stage.show();
     }
 

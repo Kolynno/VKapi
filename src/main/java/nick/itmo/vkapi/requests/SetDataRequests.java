@@ -62,6 +62,9 @@ public class SetDataRequests {
                         System.out.println("ID group is correct");
                         Data.IS_CORRECT_GROUP_ID = true;
                     }
+                    if(firstGroupNode.has("name")) {
+                        Data.GROUP_NAME = firstGroupNode.get("name").asText();
+                    }
                 }
             } else {
                 System.out.println("ID group isn't correct");
