@@ -15,7 +15,12 @@ public class VKAPI extends Application {
         fxmlLoader.setCharset(StandardCharsets.UTF_8);
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("VK API");
+        stage.setMinWidth(1000);
+        stage.setMinHeight(600);
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setMaximized(false);
+        stage.setFullScreen(false);
         stage.show();
     }
 

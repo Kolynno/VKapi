@@ -1,8 +1,9 @@
 package nick.itmo.vkapi.controllers;
-
 import javafx.event.ActionEvent;
 
+
 public class MainViewController {
+
     public void ButtonSendPostClick(ActionEvent actionEvent) {
     }
 

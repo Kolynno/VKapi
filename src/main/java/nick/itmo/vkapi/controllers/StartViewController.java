@@ -67,6 +67,9 @@ public class StartViewController {
             Stage stage = (Stage) fieldGroupLink.getScene().getWindow();
             Scene scene = new Scene(root, 1280, 720);
             stage.setScene(scene);
+            stage.setResizable(true);
+            stage.setMaximized(true);
+            stage.setFullScreen(true);
             stage.show();
 
         } catch (IOException e) {

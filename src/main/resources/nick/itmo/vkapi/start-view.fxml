@@ -6,27 +6,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: D9D9D9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nick.itmo.vkapi.controllers.StartViewController">
    <children>
-      <TextField fx:id="fieldGroupLink" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="250.0" promptText="Ссылка на группу" style="-fx-background-radius: 200;" AnchorPane.leftAnchor="515.0" AnchorPane.topAnchor="210.0">
+      <TextField fx:id="fieldGroupLink" alignment="CENTER" layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Ссылка на группу" style="-fx-background-radius: 200;" AnchorPane.bottomAnchor="470.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="210.0">
          <font>
             <Font name="Droid Sans" size="15.0" />
          </font></TextField>
-      <TextField fx:id="fieldGroupToken" alignment="CENTER" layoutX="14.0" layoutY="39.0" prefHeight="40.0" prefWidth="250.0" promptText="Ссылка с токеном" style="-fx-background-radius: 200;" AnchorPane.leftAnchor="515.0" AnchorPane.topAnchor="270.0">
+      <TextField fx:id="fieldGroupToken" alignment="CENTER" layoutX="14.0" layoutY="39.0" prefHeight="40.0" prefWidth="250.0" promptText="Ссылка с токеном" style="-fx-background-radius: 200;" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="270.0">
          <font>
             <Font name="Droid Sans" size="15.0" />
          </font></TextField>
-      <Button fx:id="buttonGetToken" contentDisplay="CENTER" layoutX="174.0" layoutY="39.0" mnemonicParsing="false" onAction="#buttonGetTokenClick" prefHeight="30.0" prefWidth="250.0" style="-fx-background-radius: 8; -fx-background-color: #8A8A8A; -fx-text-fill: white;" text="Получить ссылку с токеном" AnchorPane.leftAnchor="515.0" AnchorPane.topAnchor="330.0">
+      <Button fx:id="buttonGetToken" contentDisplay="CENTER" layoutX="174.0" layoutY="39.0" mnemonicParsing="false" onAction="#buttonGetTokenClick" prefHeight="30.0" prefWidth="250.0" style="-fx-background-radius: 8; -fx-background-color: #8A8A8A; -fx-text-fill: white;" text="Получить ссылку с токеном" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="330.0">
          <font>
             <Font name="Droid Sans" size="15.0" />
          </font></Button>
-      <Button fx:id="buttonGetAccess" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#buttonGetAccessClick" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 5;" text="Войти" textFill="WHITE" AnchorPane.leftAnchor="560.0" AnchorPane.topAnchor="470.0">
+      <Button fx:id="buttonGetAccess" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#buttonGetAccessClick" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: black; -fx-background-radius: 5;" text="Войти" textFill="WHITE" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="565.0" AnchorPane.rightAnchor="565.0" AnchorPane.topAnchor="470.0">
          <font>
             <Font name="Droid Sans" size="15.0" />
          </font></Button>
-      <Label fx:id="labelTextIncorrectMessage" layoutX="75.0" layoutY="91.0" prefWidth="250.0" textAlignment="CENTER" textFill="#eb0000" wrapText="true" AnchorPane.leftAnchor="515.0" AnchorPane.topAnchor="400.0">
+      <Label fx:id="labelTextIncorrectMessage" layoutX="75.0" layoutY="91.0" prefWidth="250.0" textAlignment="CENTER" textFill="#eb0000" wrapText="true" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="400.0">
          <font>
             <Font name="Droid Sans" size="16.0" />
          </font></Label>
-      <Label layoutX="10.0" layoutY="690.0" text="v. 0.01, Николай Жмакин">
+      <Label layoutX="10.0" layoutY="690.0" text="v. 0.01, Николай Жмакин" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="Droid Sans" size="18.0" />
          </font>
@@ -36,7 +36,7 @@
             <Font name="Droid Sans" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="1220.0" layoutY="660.0" mnemonicParsing="false" onAction="#buttonGetHelp" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #8A8A8A; -fx-background-radius: 200;" text="?" textAlignment="CENTER">
+      <Button layoutX="1220.0" layoutY="660.0" mnemonicParsing="false" onAction="#buttonGetHelp" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #8A8A8A; -fx-background-radius: 200;" text="?" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font name="Droid Sans" size="26.0" />
          </font>
