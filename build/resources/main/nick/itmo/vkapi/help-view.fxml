@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #D9D9D9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nick.itmo.vkapi.controllers.HelpViewController">
+   <children>
+      <ImageView fitHeight="650.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0">
+         <image>
+            <Image url="@img/help.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelHelp" text="Помощь" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Droid Sans" size="40.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#buttonBackClick" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #8A8A8A; -fx-background-radius: 200;" text="&lt;-" AnchorPane.leftAnchor="1220.0" AnchorPane.topAnchor="660.0">
+         <font>
+            <Font name="Droid Sans" size="22.0" />
+         </font>
+      </Button>
+      <Label prefWidth="500.0" text="Откройте свою группу в вк. Скопируйте ссылку и вставьте ее в верхнее поле. Далее нажмите на кнопку &quot;Получить ссылку с токеном&quot;" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0">
+         <font>
+            <Font name="Droid Sans" size="19.0" />
+         </font>
+      </Label>
+      <Label prefWidth="500.0" text="В открывшимся окне браузера войдите в свой аккаунт вк, разрешите доступ и скопируете ссылку и вставьте в нижнее поле. После чего нажмите кнопку &quot;Войти&quot;" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="440.0">
+         <font>
+            <Font name="Droid Sans" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="sceneHelper" disable="true" editable="false" opacity="0.0" />
+   </children>
+</AnchorPane>

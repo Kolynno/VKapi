@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorPaneMain" prefWidth="1280.0" style="-fx-background-color: D9D9D9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nick.itmo.vkapi.controllers.MainViewController">
+   <children>
+      <TextArea fx:id="textAreaTemplatePreview" editable="false" prefHeight="310.0" prefWidth="400.0" style="-fx-background-color: #8F8F8F; -fx-border-color: #787878; -fx-border-width: 1 0 0 1;" text="Превью шаблона" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="360.0">
+         <font>
+            <Font name="Droid Sans" size="16.0" />
+         </font>
+      </TextArea>
+      <HBox prefHeight="50.0" prefWidth="1080.0" style="-fx-background-color: #BEBEBE; -fx-border-width: 0 0 1 0; -fx-border-color: #787878;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Label fx:id="labelNameOfGroup" text="Название сообщества">
+               <font>
+                  <Font name="Droid Sans" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+
+      <TableView fx:id="tableViewVars" editable="true" prefHeight="620.0" prefWidth="300.0" style="-fx-background-color: #656565; -fx-border-color: #787878; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <columns>
+            <TableColumn fx:id="colVariableName" editable="false" prefWidth="100.0" text="Переменная" />
+            <TableColumn fx:id="colVariableValue" editable="true" prefWidth="197.0" text="Значение" />
+         </columns>
+      </TableView>
+
+
+
+      <ListView fx:id="listViewTemplates" prefHeight="310.0" prefWidth="400.0" style="-fx-background-color: #8F8F8F; -fx-border-color: #787878; -fx-border-width: 0 0 0 1;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <TextArea fx:id="textAreaPost" prefHeight="620.0" prefWidth="480.0" promptText="Ваш пост" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Droid Sans" size="16.0" />
+         </font>
+      </TextArea>
+      <HBox prefHeight="50.0" prefWidth="1080.0" style="-fx-background-color: #BEBEBE; -fx-border-color: #787878; -fx-border-width: 1 0 0 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#ButtonSendPostClick" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #D9D9D9;" text="Отправить пост">
+               <font>
+                  <Font name="Droid Sans" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="20.0" layoutY="16.0" mnemonicParsing="false" onAction="#ButtonClearTextClick" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #D9D9D9;" text="Очистить текст">
+               <font>
+                  <Font name="Droid Sans" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="180.0" layoutY="16.0" mnemonicParsing="false" onAction="#ButtonClearVarsClick" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: #D9D9D9;" text="Очистить переменные">
+               <font>
+                  <Font name="Droid Sans" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="180.0" layoutY="16.0" mnemonicParsing="false" onAction="#ButtonDeleteTemplateClick" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #D9D9D9;" text="Удалить шаблон">
+               <font>
+                  <Font name="Droid Sans" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="750.0" layoutY="16.0" mnemonicParsing="false" onAction="#ButtonSaveTemplateClick" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #D9D9D9;" text="Сохранить шаблон">
+               <font>
+                  <Font name="Droid Sans" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children></HBox>
+   </children>
+</AnchorPane>
