@@ -24,9 +24,18 @@
             </Label>
          </children>
       </HBox>
-      <ListView fx:id="listViewVars" editable="true" prefHeight="620.0" prefWidth="200.0" style="-fx-background-color: #656565; -fx-border-color: #787878; -fx-border-width: 0 1 0 0;" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="50.0" />
+
+      <TableView fx:id="tableViewVars" editable="true" prefHeight="620.0" prefWidth="300.0" style="-fx-background-color: #656565; -fx-border-color: #787878; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <columns>
+            <TableColumn fx:id="colVariableName" editable="false" prefWidth="100.0" text="Переменная" />
+            <TableColumn fx:id="colVariableValue" prefWidth="200.0" text="Значение" editable="true" />
+         </columns>
+      </TableView>
+
+
+
       <ListView fx:id="listViewTemplates" prefHeight="310.0" prefWidth="400.0" style="-fx-background-color: #8F8F8F; -fx-border-color: #787878; -fx-border-width: 0 0 0 1;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
-      <TextArea fx:id="textAreaPost" prefHeight="620.0" prefWidth="480.0" promptText="Ваш пост" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="50.0">
+      <TextArea fx:id="textAreaPost" prefHeight="620.0" prefWidth="480.0" promptText="Ваш пост" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="50.0">
          <font>
             <Font name="Droid Sans" size="16.0" />
          </font>
