@@ -1,9 +1,8 @@
 package nick.itmo.vkapi.user.templates;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import nick.itmo.vkapi.data.Data;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -51,4 +50,46 @@ public class FileRepository {
             e.printStackTrace();
         }
     }
+
+    public static void saveGroupIdAndToken() {
+        try (PrintWriter writer = new PrintWriter("src/main/java/nick/itmo/vkapi/user/templates/groupId.txt")) {
+            writer.write(Data.GROUP_ID);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (PrintWriter writer = new PrintWriter("src/main/java/nick/itmo/vkapi/user/templates/token.txt")) {
+            writer.write(Data.TOKEN);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String getGroupIdFromFile() {
+        String groupIdFilePath = "src/main/java/nick/itmo/vkapi/user/templates/groupId.txt";
+        File groupIdFile = new File(groupIdFilePath);
+        if (groupIdFile.exists()) {
+            try {
+                String groupId = Files.readString(Paths.get(groupIdFilePath));
+                return groupId;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
+
+    public static String getTokenFromFile() {
+        String tokenFilePath = "src/main/java/nick/itmo/vkapi/user/templates/token.txt";
+        File tokenFile = new File(tokenFilePath);
+        if (tokenFile.exists()) {
+            try {
+                String token = Files.readString(Paths.get(tokenFilePath));
+                return token;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
+
 }

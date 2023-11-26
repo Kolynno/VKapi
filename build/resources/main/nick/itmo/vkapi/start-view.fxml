@@ -22,7 +22,7 @@
          <font>
             <Font name="Droid Sans" size="15.0" />
          </font></Button>
-      <Label fx:id="labelTextIncorrectMessage" layoutX="75.0" layoutY="91.0" prefWidth="250.0" textAlignment="CENTER" textFill="#eb0000" wrapText="true" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="400.0">
+      <Label fx:id="labelTextIncorrectMessage" layoutX="75.0" layoutY="91.0" prefWidth="250.0" textAlignment="CENTER" textFill="#eb0000" wrapText="true" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="400.0">
          <font>
             <Font name="Droid Sans" size="16.0" />
          </font></Label>
@@ -41,5 +41,10 @@
             <Font name="Droid Sans" size="26.0" />
          </font>
       </Button>
+      <RadioButton fx:id="radioButtonRemember" mnemonicParsing="false" selected="true" text="Запомнить" AnchorPane.leftAnchor="585.0" AnchorPane.rightAnchor="585.0" AnchorPane.topAnchor="510.0">
+         <font>
+            <Font name="Droid Sans" size="15.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -15,6 +16,7 @@ import nick.itmo.vkapi.data.Data;
 import nick.itmo.vkapi.requests.SetDataRequests;
 import nick.itmo.vkapi.requests.CheckRequests;
 import nick.itmo.vkapi.requests.SignOrLoginRequests;
+import nick.itmo.vkapi.user.templates.FileRepository;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -31,8 +33,24 @@ public class StartViewController {
     private Label labelTextIncorrectMessage;
 
     @FXML
+    private RadioButton radioButtonRemember;
+
+    @FXML
     private void buttonGetTokenClick() {
         SignOrLoginRequests.openBrowserToGetTokenURL();
+    }
+
+
+    @FXML
+    public void initialize() {
+        if (!FileRepository.getTokenFromFile().isBlank()) {
+            setUpFieldsFromFile();
+        }
+    }
+
+    private void setUpFieldsFromFile() {
+        fieldGroupLink.setText(FileRepository.getGroupIdFromFile());
+        fieldGroupToken.setText(FileRepository.getTokenFromFile());
     }
 
     /**
@@ -51,16 +69,24 @@ public class StartViewController {
 
         CheckRequests.checkGroupIdAndToken();
 
+
         if (Data.IS_CORRECT) {
             changeViewToMain();
+            checkRadioButtonRemember();
         } else {
             setTextToLabel();
         }
     }
 
+    private void checkRadioButtonRemember() {
+        if (radioButtonRemember.isSelected() ) {
+            FileRepository.saveGroupIdAndToken();
+        }
+    }
+
     private void changeViewToMain() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(VKAPI.class.getResource("main-view.fxml"));
             loader.setCharset(StandardCharsets.UTF_8);
             Parent root = loader.load();
 
@@ -69,7 +95,6 @@ public class StartViewController {
             stage.setScene(scene);
             stage.setResizable(true);
             stage.setMaximized(true);
-            stage.setFullScreen(true);
             stage.show();
 
         } catch (IOException e) {

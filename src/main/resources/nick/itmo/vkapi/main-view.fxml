@@ -28,7 +28,7 @@
       <TableView fx:id="tableViewVars" editable="true" prefHeight="620.0" prefWidth="300.0" style="-fx-background-color: #656565; -fx-border-color: #787878; -fx-border-width: 0 1 0 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
          <columns>
             <TableColumn fx:id="colVariableName" editable="false" prefWidth="100.0" text="Переменная" />
-            <TableColumn fx:id="colVariableValue" prefWidth="200.0" text="Значение" editable="true" />
+            <TableColumn fx:id="colVariableValue" editable="true" prefWidth="197.0" text="Значение" />
          </columns>
       </TableView>
 

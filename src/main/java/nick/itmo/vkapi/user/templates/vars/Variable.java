@@ -1,4 +1,4 @@
-package nick.itmo.vkapi.user;
+package nick.itmo.vkapi.user.templates.vars;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,20 +13,8 @@ public class Variable {
         this.value = new SimpleStringProperty(value);
     }
 
-    public String getName() {
-        return name.get();
-    }
-
-    public void setName(String name) {
-        this.name.set(name);
-    }
-
     public StringProperty nameProperty() {
         return name;
-    }
-
-    public String getValue() {
-        return value.get();
     }
 
     public void setValue(String value) {
