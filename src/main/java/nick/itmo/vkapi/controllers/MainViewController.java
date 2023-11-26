@@ -10,7 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import nick.itmo.vkapi.data.Data;
-import nick.itmo.vkapi.user.TemplatesHandle;
+import nick.itmo.vkapi.user.templates.TemplatesHandle;
 
 
 public class MainViewController {
@@ -30,10 +30,13 @@ public class MainViewController {
     @FXML
     private TextArea textAreaTemplatePreview;
 
+    private String textValue;
+    private final ObservableList<String> templateNames = FXCollections.observableArrayList(TemplatesHandle.getTemplatesNames());
+
     @FXML
     public void initialize() {
         labelNameOfGroup.setText(Data.GROUP_NAME);
-        listViewTemplates.setItems(templateNames);
+        TemplatesHandle.updateTemplatesList(listViewTemplates, templateNames);
 
         listViewTemplates.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) ->
@@ -41,8 +44,7 @@ public class MainViewController {
 
         listViewTemplates.setOnMouseClicked(event -> {
             if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-                // Если это был двойной щелчок левой кнопкой мыши, вызываем метод
-                //setTextFromTemplate();
+                textAreaPost.setText(TemplatesHandle.getFullTextByName(textValue));
             }
         });
 
@@ -54,26 +56,36 @@ public class MainViewController {
     }
 
     public void showTemplatePreview(String newValue) {
-        textAreaTemplatePreview.setText(newValue);
+        textValue = newValue;
+        textAreaTemplatePreview.setText(TemplatesHandle.getFullTextByName(newValue));
     }
 
     public void ButtonSendPostClick(ActionEvent actionEvent) {
     }
 
     public void ButtonClearTextClick(ActionEvent actionEvent) {
+        textAreaPost.setText("");
     }
 
     public void ButtonClearVarsClick(ActionEvent actionEvent) {
     }
 
+    /**
+     * Удаление файла шаблона, удаление шаблона из списка, обновление списка, снятие выделения со списка,
+     * очистка и установка текста в поля
+     * */
     public void ButtonDeleteTemplateClick(ActionEvent actionEvent) {
+        TemplatesHandle.deleteTemplateByName(textValue);
+        templateNames.remove(textValue);
+        TemplatesHandle.updateTemplatesList(listViewTemplates, templateNames);
+        listViewTemplates.getSelectionModel().clearSelection();
+        textAreaPost.clear();
+        textAreaTemplatePreview.setText("Превью шаблона");
     }
 
-    private final ObservableList<String> templateNames = FXCollections.observableArrayList(TemplatesHandle.getTemplatesNames());
-
-
     public void ButtonSaveTemplateClick() {
-        TemplatesHandle.saveTemplate(textAreaPost.getText(), listViewTemplates);
-
+        if (!textAreaPost.getText().isBlank()) {
+            TemplatesHandle.saveTemplate(textAreaPost.getText(), listViewTemplates);
+        }
     }
 }

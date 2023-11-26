@@ -1,7 +1,7 @@
-package nick.itmo.vkapi.user;
+package nick.itmo.vkapi.user.templates;
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
-import nick.itmo.vkapi.user.templates.FileRepository;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,7 @@ public class TemplatesHandle {
     }
 
     private static void saveTemplateToList(String text, ListView<String> listViewTemplates) {
-        String templateName = text.substring(0, Math.min(60, text.length()));
+        String templateName = templateId + ":" + text.substring(0, Math.min(60, text.length()));
         listViewTemplates.getItems().add(templateName);
     }
 
@@ -85,5 +85,29 @@ public class TemplatesHandle {
         }
 
         return templatesPreview;
+    }
+
+    public static String getFullTextByName(String textValue) {
+        int colonIndex = textValue.indexOf(":");
+        String id = "";
+        if (colonIndex != -1) {
+            id = textValue.substring(0, colonIndex);
+        }
+        String textToPost = FileRepository.getTextById(id);
+        return textToPost.substring(colonIndex + 1);
+    }
+
+    public static void deleteTemplateByName(String textValue) {
+        int colonIndex = textValue.indexOf(":");
+        String id = "";
+        if (colonIndex != -1) {
+            id = textValue.substring(0, colonIndex);
+        }
+        FileRepository.deleteTextById(id);
+
+    }
+
+    public static void updateTemplatesList(ListView<String> listViewTemplates, ObservableList<String> templateNames) {
+        listViewTemplates.setItems(templateNames);
     }
 }
