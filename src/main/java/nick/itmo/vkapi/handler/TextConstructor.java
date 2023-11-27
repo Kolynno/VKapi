@@ -26,8 +26,7 @@ public class TextConstructor {
         System.out.println("Original text:" + originalText);
         System.out.println("Post text:" + textToPost);
 
-        Boolean isOk = VKRequests.WallPost(textToPost);
-        return isOk;
+        return VKRequests.WallPost(textToPost);
     }
 
 

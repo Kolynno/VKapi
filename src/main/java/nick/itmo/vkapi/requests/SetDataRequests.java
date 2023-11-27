@@ -21,7 +21,6 @@ import java.util.Map;
 
 public class SetDataRequests {
 
-
     /**
      * Если уже в файле есть данные, то обновляется только имя группы, если же нет данных в файле, то еще и id группы.
      * К тому же если в строке с ссылкой на группу есть ссылка, то обновить группу
@@ -34,7 +33,6 @@ public class SetDataRequests {
             getGroupName(Data.GROUP_ID);
             return;
         }
-
         if (groupIdStr.length() < 15) {
             return;
         }
@@ -45,7 +43,6 @@ public class SetDataRequests {
     private static String getGroupIdAndName(String groupURL) {
 
         int id = 0;
-
         try {
             HttpClient httpClient = HttpClients.createDefault();
             String apiUrl = "https://api.vk.com/method/groups.getById?group_id=" + groupURL + "&access_token=" + Data.TOKEN + "&v=5.154";
@@ -142,13 +139,13 @@ public class SetDataRequests {
         }
         String fragment = inputString.split("#")[1];
         String decodedFragment = URLDecoder.decode(fragment, StandardCharsets.UTF_8);
-        String accessToken = getAccessToken(decodedFragment);
-        Data.TOKEN = accessToken;
+        Data.TOKEN = getAccessToken(decodedFragment);
         Data.IS_CORRECT_TOKEN = true;
     }
 
     /**
-     * Разделяет url по частям и находит значение токена */
+     * Разделяет url по частям и находит значение токена
+     * */
     private static String getAccessToken(String url) {
         String[] params = url.split("&");
         Map<String, String> paramMap = new HashMap<>();
@@ -158,8 +155,7 @@ public class SetDataRequests {
                 paramMap.put(keyValue[0], keyValue[1]);
             }
         }
-        String accessToken = paramMap.get("access_token");
-        return accessToken;
+        return paramMap.get("access_token");
     }
 
 }

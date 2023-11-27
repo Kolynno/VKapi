@@ -40,7 +40,6 @@ public class StartViewController {
         SignOrLoginRequests.openBrowserToGetTokenURL();
     }
 
-
     @FXML
     public void initialize() {
         if (!FileRepository.getTokenFromFile().isBlank()) {

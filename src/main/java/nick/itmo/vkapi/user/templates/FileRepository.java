@@ -69,8 +69,7 @@ public class FileRepository {
         File groupIdFile = new File(groupIdFilePath);
         if (groupIdFile.exists()) {
             try {
-                String groupId = Files.readString(Paths.get(groupIdFilePath));
-                return groupId;
+                return Files.readString(Paths.get(groupIdFilePath));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -83,8 +82,7 @@ public class FileRepository {
         File tokenFile = new File(tokenFilePath);
         if (tokenFile.exists()) {
             try {
-                String token = Files.readString(Paths.get(tokenFilePath));
-                return token;
+                return Files.readString(Paths.get(tokenFilePath));
             } catch (IOException e) {
                 e.printStackTrace();
             }

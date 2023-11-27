@@ -17,8 +17,6 @@ import nick.itmo.vkapi.user.templates.vars.Variable;
 import nick.itmo.vkapi.user.templates.TemplatesHandle;
 import nick.itmo.vkapi.user.templates.vars.VariableHandler;
 
-import java.util.Timer;
-
 public class MainViewController {
 
     @FXML
@@ -109,11 +107,9 @@ public class MainViewController {
         } else {
             textAreaPost.setText("Пост НЕ отправлен, ошибка!");
         }
-
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> textAreaPost.clear()));
         timeline.play();
     }
-
 
     public void ButtonClearTextClick(ActionEvent actionEvent) {
         textAreaPost.setText("");
@@ -124,7 +120,6 @@ public class MainViewController {
             variable.setValue("");
         }
     }
-
 
     /**
      * Удаление файла шаблона, удаление шаблона из списка, обновление списка, снятие выделения со списка,

@@ -17,7 +17,6 @@ public class HelpViewController {
     @FXML
     private TextField sceneHelper;
 
-
     public void buttonBackClick(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(VKAPI.class.getResource("start-view.fxml"));
