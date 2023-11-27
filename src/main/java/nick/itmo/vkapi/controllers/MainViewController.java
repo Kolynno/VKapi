@@ -1,4 +1,6 @@
 package nick.itmo.vkapi.controllers;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,10 +10,14 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import nick.itmo.vkapi.data.Data;
+import nick.itmo.vkapi.handler.TextConstructor;
 import nick.itmo.vkapi.user.templates.vars.Variable;
 import nick.itmo.vkapi.user.templates.TemplatesHandle;
 import nick.itmo.vkapi.user.templates.vars.VariableHandler;
+
+import java.util.Timer;
 
 public class MainViewController {
 
@@ -96,7 +102,18 @@ public class MainViewController {
     }
 
     public void ButtonSendPostClick(ActionEvent actionEvent) {
+        String postText = textAreaPost.getText();
+        ObservableList<Variable> selectedVariables = tableViewVars.getSelectionModel().getTableView().getItems();
+        if (TextConstructor.textConstruct(postText, selectedVariables)) {
+            textAreaPost.setText("Успешно отправлено!");
+        } else {
+            textAreaPost.setText("Пост НЕ отправлен, ошибка!");
+        }
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> textAreaPost.clear()));
+        timeline.play();
     }
+
 
     public void ButtonClearTextClick(ActionEvent actionEvent) {
         textAreaPost.setText("");

@@ -23,11 +23,12 @@ public class SetDataRequests {
 
 
     /**
-     * Если уже в файле есть данные, то обновляется только имя группы, если же нет данных в файле, то еще и id группы
+     * Если уже в файле есть данные, то обновляется только имя группы, если же нет данных в файле, то еще и id группы.
+     * К тому же если в строке с ссылкой на группу есть ссылка, то обновить группу
      * */
     public static void setGroupId(String groupIdStr) {
 
-        if (!FileRepository.getTokenFromFile().isBlank()) {
+        if (!FileRepository.getTokenFromFile().isBlank() && !groupIdStr.contains("https://vk.com")) {
             Data.GROUP_ID = FileRepository.getGroupIdFromFile();
             Data.IS_CORRECT_GROUP_ID = true;
             getGroupName(Data.GROUP_ID);

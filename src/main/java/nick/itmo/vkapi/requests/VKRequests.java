@@ -1,53 +1,40 @@
 package nick.itmo.vkapi.requests;
 
-import com.fasterxml.jackson.core.json.JsonReadFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import nick.itmo.vkapi.data.Data;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.HttpClients;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.Locale;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class VKRequests {
 
-    public static void WallPost() {
-        String apiUrl = "https://api.vk.com/method/wall.post?owner_id=-223544817&message=d&access_token="+ Data.TOKEN +"&v=5.131";
+    /**
+     *Отправляет API запрос на создание поста в группу. Если все ок, то вернет true
+     *  */
+    public static boolean WallPost(String textToPost) {
         HttpClient httpClient = HttpClients.createDefault();
         try {
-            HttpGet request = new HttpGet(apiUrl);
+            String apiUrl = "https://api.vk.com/method/wall.post";
+            URIBuilder builder = new URIBuilder(apiUrl);
+            builder.setParameter("owner_id", "-" + Data.GROUP_ID);
+            builder.setParameter("message", textToPost);
+            builder.setParameter("access_token", Data.TOKEN);
+            builder.setParameter("v", "5.131");
+
+            URI uri = builder.build();
+            HttpGet request = new HttpGet(uri);
             HttpResponse response = httpClient.execute(request);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), StandardCharsets.UTF_8));
-            StringBuilder responseStringBuilder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                responseStringBuilder.append(line);
+
+            if (response.getStatusLine().getStatusCode() == 200) {
+                return true;
             }
-            ObjectMapper objectMapper = new ObjectMapper().enable(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature());
-            objectMapper.setLocale(Locale.forLanguageTag("ru-RU"));
-            JsonNode jsonResponse = objectMapper.readTree(responseStringBuilder.toString());
-            processApiResponse(jsonResponse);
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
+        return false;
     }
-
-    private static void processApiResponse(JsonNode jsonResponse) {
-        JsonNode responseNode = jsonResponse.get("response");
-        if (responseNode != null && responseNode.has("post_id")) {
-            JsonNode userNode = responseNode.get("post_id");
-            int id = userNode.asInt();
-
-            System.out.println("ID: " + id);
-        } else {
-            System.out.println("Error: Unable to retrieve post_id from the response.");
-        }
-    }
-
 }

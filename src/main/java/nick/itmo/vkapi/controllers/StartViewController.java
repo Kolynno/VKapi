@@ -54,7 +54,8 @@ public class StartViewController {
     }
 
     /**
-     * Проверка, что id и token валидны, тогда регистрация успешна, иначе сообщать */
+     * Проверка, что id и token валидны, тогда регистрация успешна, иначе сообщать
+     * */
     @FXML
     private void buttonGetAccessClick() {
         String tokenURL = fieldGroupToken.getText();
@@ -68,7 +69,6 @@ public class StartViewController {
         }
 
         CheckRequests.checkGroupIdAndToken();
-
 
         if (Data.IS_CORRECT) {
             changeViewToMain();

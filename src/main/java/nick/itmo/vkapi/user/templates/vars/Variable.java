@@ -24,4 +24,16 @@ public class Variable {
     public StringProperty valueProperty() {
         return value;
     }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public String getValue() {
+        return value.get();
+    }
 }
