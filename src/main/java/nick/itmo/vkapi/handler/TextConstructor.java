@@ -15,16 +15,10 @@ public class TextConstructor {
             String variableName = variable.getName();
             String variableValue = variable.getValue();
 
-            System.out.println("var:" + variableName + " value:" + variableValue);
-
             textToPost = textToPost.replace("__" + variableName + "__", variableValue);
         }
-
         textToPost = new String(textToPost.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
         textToPost = textToPost.trim();  // Удаление символа новой строки в конце строки
-
-        System.out.println("Original text:" + originalText);
-        System.out.println("Post text:" + textToPost);
 
         return VKRequests.WallPost(textToPost);
     }

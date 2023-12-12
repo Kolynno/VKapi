@@ -87,7 +87,7 @@ public class SetDataRequests {
     }
 
 
-    private static String getGroupName(String groupURL) {
+    private static void getGroupName(String groupURL) {
 
         int id = 0;
 
@@ -127,7 +127,6 @@ public class SetDataRequests {
             e.printStackTrace();
         }
 
-        return String.valueOf(id);
     }
 
     public static void setToken(String inputString) {
